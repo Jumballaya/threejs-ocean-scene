@@ -6,14 +6,14 @@ const webpack = require('webpack');
 module.exports = merge(commonConfiguration, {
   mode: 'production',
   output: {
-    publicPath: '/floating-text/',
+    publicPath: '/threejs-ocean-scene/',
   },
   plugins: [
     new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       process: {
         env: {
-          PUBLIC_PATH: JSON.stringify('/floating-text/'),
+          PUBLIC_PATH: JSON.stringify('/threejs-ocean-scene/'),
         },
       },
     }),
