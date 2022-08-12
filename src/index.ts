@@ -5,6 +5,8 @@ import { Core } from './core/Core';
 import waterFragmentShader from './shaders/water/fragment.glsl';
 import waterVertexShader from './shaders/water/vertex.glsl';
 
+const publicPath = process?.env?.PUBLIC_PATH || '/';
+
 const state = {
   core: new Core(),
 
@@ -195,7 +197,10 @@ const main = async () => {
   colorGuiSetup(sea.material);
   fogGuiSetup(sea.material);
 
-  const boat = await state.core.loader.loadGltf('ship', '/models/ship.glb');
+  const boat = await state.core.loader.loadGltf(
+    'ship',
+    `${publicPath}models/ship.glb`,
+  );
   boat.scene.scale.set(0.1, 0.1, 0.1);
   state.core.add(boat.scene);
 
